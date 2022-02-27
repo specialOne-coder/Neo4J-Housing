@@ -20,7 +20,7 @@ Don't forget to import the csv files located in the Data folder of this reposito
 
 ### Create Constraint
 
-``
+```
 CREATE CONSTRAINT ON (ad:Adresse) ASSERT ad.Name_Adr IS UNIQUE ;
 CREATE CONSTRAINT ON (ard:Arrondissement) ASSERT ard.Numero_Ard IS UNIQUE ;
 CREATE CONSTRAINT ON (ard:Arrondissement) ASSERT ard.NumeroInsee IS UNIQUE ;
@@ -42,11 +42,11 @@ CREATE CONSTRAINT ON (co:Contact) ASSERT co.Mail IS UNIQUE ;
 CREATE CONSTRAINT ON (en:Enseigne) ASSERT en.nomEnseigne IS UNIQUE ;
 CREATE CONSTRAINT ON (dt:Demande_Terrasse) ASSERT dt.NumeroDemande IS UNIQUE;
 
-``
+```
 
 ### Create Node and RelationShip
 
-`
+```
  :auto USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS FROM "file:///arrondissements.csv" AS line FIELDTERMINATOR';'
  
@@ -238,19 +238,19 @@ MERGE(adr:Adresse{Name_Adr:line.ADR_ORI})
 MERGE(pp)-[:HAS_P_TYPE]->(tp)
 MERGE(pp)-[:HAS_ADDRESS]->(adr)
 
-`
+```
 
 To see if everything works after your import requests 
 you can run these sample requests for see the number of individuals 
 protected by arrondissement with their different plots in the city of Paris
 
-`
+```
 MATCH (pp:Particulier_Protg)-[:HAS_ARD]->(ard:Arrondissement)
 MATCH (pp)-[:IS_LOCATED]->(pa:Parcelle)
 RETURN DISTINCT(ard.NumeroInsee) as Arrondissement,count(ToInteger(pp.Identifiant_Epp)) AS NB_TOTAL_ParticulierProtg,COLLECT(pa.Numero_Par) as Parcelles
 ORDER BY NB_TOTAL_ParticulierProtg DESC
 
-`
+```
 
 Thanks 
 You can contact me at ferdiattivi@gmail.com
