@@ -20,7 +20,7 @@ Don't forget to import the csv files located in the Data folder of this reposito
 
 ### Create Constraint
 
-`
+``
 CREATE CONSTRAINT ON (ad:Adresse) ASSERT ad.Name_Adr IS UNIQUE ;
 CREATE CONSTRAINT ON (ard:Arrondissement) ASSERT ard.Numero_Ard IS UNIQUE ;
 CREATE CONSTRAINT ON (ard:Arrondissement) ASSERT ard.NumeroInsee IS UNIQUE ;
@@ -42,7 +42,7 @@ CREATE CONSTRAINT ON (co:Contact) ASSERT co.Mail IS UNIQUE ;
 CREATE CONSTRAINT ON (en:Enseigne) ASSERT en.nomEnseigne IS UNIQUE ;
 CREATE CONSTRAINT ON (dt:Demande_Terrasse) ASSERT dt.NumeroDemande IS UNIQUE;
 
-`
+``
 
 ### Create Node and RelationShip
 
